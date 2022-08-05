@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Shane Hendrickson</title>
+    <title>FIZZAM! by Shane Hendrickson</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
 <!-- ==== Nav Section ==== -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"><img src="img/SH_white.svg" class="d-inline-block align-text-bottom" width="30" height="24" alt="Shane Hendrickson Logo"> APP NAME</a>
+          <a class="navbar-brand" href="index.html"><img src="img/SH_white.svg" class="d-inline-block align-text-bottom" width="30" height="24" alt="Shane Hendrickson Logo"> FIZZAM!</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -34,16 +34,16 @@
                       <a class="nav-link" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="app.html">App</a>
+                      <a class="nav-link active" aria-current="page" href="app.html">The App</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="code.html">Code</a>
+                      <a class="nav-link" href="code.html">The Code</a>
                   </li>                
                   <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Repo</a>
+                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Me</a>
+                    <a class="nav-link" target="_blank" href="#">About Me</a>
                   </li>
               </ul>
           </div>
@@ -51,8 +51,61 @@
   </nav>
   <!-- ==== Main Section ==== -->
   <main class="flex-shrink-0">
-    <div class="container">
-
+    <div class="container mt-5">
+      <div class="row row-cols-1 row-cols-lg-2">
+        <div class="col-lg-4 border-end border-2">
+          <h1>FIZZAM!:<br> A Coding Project</h1>
+          <h4 class="lead">
+            One hundred bottles of FizzBuzz on the wall.<br>
+            Take one down, loop it around...<br>
+            This project uses a loop to print out the numbers 1 to 100. However, it will:<br>
+            <ul>
+              <li>
+                Replace any number divisible by your chosen FIZZ value with "FIZZ"
+              </li>
+              <li>
+                Replace any number divisble by your chosen BUZZ value with "BUZZ"
+              </li>
+              <li>
+                Replace any number divisible by the sum of your chosen FIZZ and BUZZ values with "GAZZ"
+              </li>
+              <li>
+                Combine any of the above possibilities that are divisible by more than one of those numbers
+              </li>
+              <li>
+                Unless it's divisible by all three, in which case it gets FIZZAMED!
+              </li>
+            </ul>
+          </h4>
+          <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+          <p>Enter a Fizz value and a Buzz value.<br>
+            Press the button and the values will appear.</p>
+        </div>
+        <div class="col-lg-8">
+          <div>
+            <h5>Enter Values</h5>
+            <form class="row gy-2 gx-3">
+              <div class="col">
+                <input id="fizzValue" type="number" class="form-control" value=3 placeholder="Fizz Value" aria-label="Fizz Value">
+              </div>
+              <div class="col">
+                <input id="buzzValue" type="number" class="form-control" value=4 placeholder="Buzz Value" aria-label="Buzz Value">
+              </div>
+              <div class="col-12 d-flex justify-content-end">
+                <button id="btnSubmit" type="button" class="btn-dark btn-lg">Fizzam It!</button>
+              </div>
+            </form>
+            <h2 class="mt-5 border-bottom border-2">Results</h2>
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <tbody id="results">
+                  <!-- Results Go Here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <!-- ==== Footer Section ==== -->
@@ -67,14 +120,27 @@
            </div>
            <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
               <div class="row">
-                <div class="col social"><a href="https://github.com/shanehendrickson" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <div class="col social"><a href="https://twitter.com/shanethedev" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
-                    <div class="col social"><a href="https://www.linkedin.com/in/shanethedev/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+                <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+                <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
               </div>
            </div>
         </div>
     </div>
   </footer>
+
+  <template id="fbTemplate">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+
+
+
     <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
@@ -82,7 +148,9 @@
 
   <!-- My Script -->
   <script src="js/site.js"></script>
-
+  <script>
+    document.getElementById('btnSubmit').addEventListener('click', getValues)
+  </script>
 </body>
 
 

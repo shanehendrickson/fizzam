@@ -1,6 +1,6 @@
 :root {
   --primary-color: #1d5888;
-  --secondary-color: #ff993b;
+  --secondary-color: #ff1616;
   --dark-color: #292929;
   --white-color: #dff3e4;
 }
@@ -63,6 +63,61 @@ code[class*="language-"],
     word-break: break-all;
     word-wrap: break-word;
   }
+
+.Fizz {
+  color: red;
+}
+
+.Buzz {
+  color: blue;
+}
+
+.Gazz {
+  color: green;
+}
+
+.FizzBuzz {
+  color: magenta;
+}
+
+.FizzGazz {
+  color: yellow;
+}
+
+.BuzzGazz {
+  color: cyan;
+}
+
+.FIZZAM {
+  font-weight: bolder;
+  animation-name: fizzamRainbow;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fizzamRainbow {
+  0% {
+    color: red;
+  }
+  18% {
+    color: magenta;
+  }
+  28% {
+    color: blue;
+  }
+  36% {
+    color: cyan;
+  }
+  54% {
+    color: green;
+  }
+  72% {
+    color: yellow;
+  }
+  100% {
+    color: red;
+  }
+}
 
 /* .sticky-footer {
   position: sticky;
