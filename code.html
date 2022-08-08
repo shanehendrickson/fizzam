@@ -58,17 +58,108 @@
         <div class="col-lg-8">
           <pre class="line-numbers">
             <code class="language-javascript">
-              // Call Hello World
-              function HelloWorld() {
-                alert("Hello World");
+              function getValues() {
+                let fizzValue = parseInt(document.getElementById('fizzValue').value);
+                let buzzValue = parseInt(document.getElementById('buzzValue').value);
+                let gazzValue = fizzValue + buzzValue;
+              
+                if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+                  let fbArray = fizzBuzz(fizzValue, buzzValue, gazzValue);
+                  displayData(fbArray);
+                } else {
+                  alert("You must enter an integer.");
+                }
+              }
+              
+              function fizzBuzz(fizzValue, buzzValue, gazzValue){
+                let returnArray = [];
+              
+                for(let i = 1; i <= 100; i++) {
+                  let fbgDisplay = ''
+                  if(i % fizzValue == 0 && i % buzzValue == 0 && i && i % gazzValue == 0){      
+                    fbgDisplay += 'FIZZAM'
+                    returnArray.push(fbgDisplay)    
+                  } 
+                  else if(i % fizzValue != 0 && i % buzzValue != 0 && i % gazzValue != 0){
+                    returnArray.push(i)
+                  }
+                  else {
+                    if (i % fizzValue == 0) {
+                      fbgDisplay += 'Fizz'        
+                    }
+                    if (i % buzzValue == 0) {
+                      fbgDisplay += 'Buzz'        
+                    }
+                    if (i % gazzValue == 0) {
+                      fbgDisplay += 'Gazz'        
+                    }
+                    returnArray.push(fbgDisplay)
+                  } 
+                }
+                return returnArray;
+              }
+              
+              function displayData(fbArray){
+                // get the table body from the page
+                let tableBody = document.getElementById('results');
+              
+                // get the template row from the template tag
+                let templateRow = document.getElementById('fbTemplate');
+              
+                tableBody.innerHTML = '';
+              
+                for (let index = 0; index < fbArray.length; index += 5) {                  
+                  let tableRow = document.importNode(templateRow.content, true);
+              
+                  // grab just the tds and put into array
+                  let rowCols = tableRow.querySelectorAll("td");
+              
+                  rowCols[0].classList.add(fbArray[index]);
+                  rowCols[0].textContent = fbArray[index];              
+                  rowCols[1].classList.add(fbArray[index+1]);
+                  rowCols[1].textContent = fbArray[index+1];              
+                  rowCols[2].classList.add(fbArray[index+2]);
+                  rowCols[2].textContent = fbArray[index+2];              
+                  rowCols[3].classList.add(fbArray[index+3]);
+                  rowCols[3].textContent = fbArray[index+3];              
+                  rowCols[4].classList.add(fbArray[index+4]);
+                  rowCols[4].textContent = fbArray[index+4];              
+              
+                  tableBody.appendChild(tableRow);
+                }            
               }
             </code>
           </pre>
         </div>
         <div class="col-lg-4">
-          <p>The Code is structure in one function.</p>
-          <h5>Hello World</h5>
-          <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+          <h5>Fizzam!</h5>
+          <p>It's FizzBuzz plus a little flair.</p>
+
+          <h6>1 - function getValues()</h6>
+          <p>This function pulls the values the user entered.</p>
+          <h6>2 - 4</h6>
+          <p>Using the unique id assigned to each input field in the HTML document to pull the values entered and svae them in a variable. Also establishing a third variable.</p>
+          <h6>6 - 12</h6>
+          <p>Checks to make sure the user entered an integer. If not, the user is alerted to do so. If so, they get stored in a variable which is passed into the fizzBuzz function. The displayData function is also called.</p>
+          <h6>14 - function fizzBuzz()</h6>
+          <p>Now the resulting array gets created.</p>
+          <h6>15 - 18</h6>
+          <p>The array returnArray is created. A loop runs over 100 numbers and the variable fbgDisplay is created with an empty string.</p>
+          <h6>19 - 22</h6>
+          <p>Check to see if the current number in the array is divisible by all three values (fizz, buzz, and gazz). If so, add 'FIZZAM' to the previously created empty string and push that to the current position in the array.</p>
+          <h6>23 - 25</h6>
+          <p>If the above is not true, check the opposite: check to see if the current value in the array is divisible by NONE of the three variables. If that's the case, push the current value (a number) into position.</p>
+          <h6>26 - 40</h6>
+          <p>If neither of the above are true, then check the current value against each individual remaining possibility. If the value is divisible by any of the variables, the corresponding word gets added to the empty string. This allows for a single possibility or any combination of two. Line 36 pushes the result to the string and line 40 finally returns the result of the entire array.</p>
+          <h6>42 - function displayData()</h6>
+          <p>This function displays the results on screen using the array created on line 7 and populated with the fizzBuzz function.</p>
+          <h6>44 - 49</h6>
+          <p>Grab elements from the HTML document and store them in variables so that we can display data in them. Set the innerHTML value of the first variable to an empty string so that it can be added to.</p>
+          <h6>51 - 55</h6>
+          <p>Now we're looping over the created array so that the individual entries can be added to the elements of the table. We're doing it in segments of five because we're going to display five entries on each row and we're pulling in clones of five TD elements from the HTML document. (These aren't visible on page thanks to a special tag, but they are available to be accessed. Then we'll print out a real row of TDs to the page.</p>
+          <h6>57 - 70</h6>
+          <p>This is where the value of our created array, be it number or string, is printed into the table rows one value at a time, one per TD. For fun, this portion of the code also adds a new class to each entry with the exact same name as the value. Unseen here are the CSS selectors that then style the entry based on the added class.</p>
+          
         </div>
       </div>
     </div>

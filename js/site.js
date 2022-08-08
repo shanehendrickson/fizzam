@@ -1,7 +1,3 @@
-
-
-
-
 function getValues() {
   let fizzValue = parseInt(document.getElementById('fizzValue').value);
   let buzzValue = parseInt(document.getElementById('buzzValue').value);
@@ -10,7 +6,6 @@ function getValues() {
   if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
     let fbArray = fizzBuzz(fizzValue, buzzValue, gazzValue);
     displayData(fbArray);
-
   } else {
     alert("You must enter an integer.");
   }
@@ -40,16 +35,12 @@ function fizzBuzz(fizzValue, buzzValue, gazzValue){
         fbgDisplay += 'Gazz'        
       }
       returnArray.push(fbgDisplay)
-
     } 
-
   }
-
   return returnArray;
 }
 
 function displayData(fbArray){
-
   // get the table body from the page
   let tableBody = document.getElementById('results');
 
